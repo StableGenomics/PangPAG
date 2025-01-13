@@ -42,3 +42,4 @@ vg chunk -x chr3.vg\
  -a sample5.giraffe.sorted.gam\
  -g --context-steps 20 -t 8 -p RefT2Tv5#0#chr3:36307397-36308540 > MC1R.vg
 ```
+
