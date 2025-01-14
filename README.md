@@ -1,6 +1,8 @@
 # PangPAG
 
+[Bandage install](https://rrwick.github.io/Bandage/
 
+[SequnceTubeMap (online demo)](https://vgteam.github.io/sequenceTubeMap/)
 
 VG manual page: https://github.com/vgteam/vg/wiki/vg-manpage
 
