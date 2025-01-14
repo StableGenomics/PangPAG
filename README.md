@@ -27,9 +27,13 @@ Alternatively, you can extract regions by the node ids if known. For example, if
 vg chunk --xg-name chr3.vg --threads 8 --node-range 60441628:60441631 > MC1R.nodes.vg
 ```
 
+Next, you can convert this subgraph back to a gfa file to view in bandage.
+```
+vg convert --threads 8 --gfa-out --no-wline MC1R.vg > MC1R.gfa
+```
 
-If you want to visualize your gam alignment files, then you must first prepare your game files with the script provided by their GitHub page. The script will output a sorted gam file in the same directory as your input file.
-https://github.com/vgteam/sequenceTubeMap
+
+If you want to visualize your gam alignment files, then you must first prepare your game files with the script provided by [SequenceTubeMap](https://github.com/vgteam/sequenceTubeMap)  on their GitHub page. The script will output a sorted gam file in the same directory as your input file.
 ```bash title="Prepare GAM files for SequenceTubeMap"
 ./sequenceTubeMap/scripts/prepare_gam.sh sample1.giraffe.gam
 ```
