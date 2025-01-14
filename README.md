@@ -16,6 +16,8 @@ vg convert --threads 8 --gfa-in --vg-out chr3.gfa > chr3.vg
 
 You can easily find coordinates of genes using NCBI's genome browser of the T2T Thoroughbred genome. For example, the MC1R gene is located at on chromosome 3 at the coordinates 36307397-36308540 in the new T2T genome.  
 https://www.ncbi.nlm.nih.gov/gdv/browser/genome/?id=GCF_041296265.1
+
+Once you identity the region you want to extract, you can use `vg chunk` to make a subgraphh of only that region.
 ```bash title="Extract vg subgraph"
 # extract by coordinates
 vg chunk --xg-name chr3.vg --threads 8 --path RefT2Tv5#0#chr3:36307397-36308540 > MC1R.coords.vg
