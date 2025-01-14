@@ -1,6 +1,6 @@
 # PangPAG
 
-[Bandage install](https://rrwick.github.io/Bandage/
+[Bandage install](https://rrwick.github.io/Bandage/)
 
 [SequnceTubeMap (online demo)](https://vgteam.github.io/sequenceTubeMap/)
 
