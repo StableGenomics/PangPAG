@@ -1,6 +1,6 @@
 # PangPAG
 
-[Bandage install](https://rrwick.github.io/Bandage/
+[Bandage install](https://rrwick.github.io/Bandage/)
 
 [SequnceTubeMap (online demo)](https://vgteam.github.io/sequenceTubeMap/)
 
@@ -16,6 +16,8 @@ vg convert --threads 8 --gfa-in --vg-out chr3.gfa > chr3.vg
 
 You can easily find coordinates of genes using NCBI's genome browser of the T2T Thoroughbred genome. For example, the MC1R gene is located at on chromosome 3 at the coordinates 36307397-36308540 in the new T2T genome.  
 https://www.ncbi.nlm.nih.gov/gdv/browser/genome/?id=GCF_041296265.1
+
+Once you identity the region you want to extract, you can use `vg chunk` to make a subgraphh of only that region.
 ```bash title="Extract vg subgraph"
 # extract by coordinates
 vg chunk --xg-name chr3.vg --threads 8 --path RefT2Tv5#0#chr3:36307397-36308540 > MC1R.coords.vg
@@ -27,9 +29,13 @@ Alternatively, you can extract regions by the node ids if known. For example, if
 vg chunk --xg-name chr3.vg --threads 8 --node-range 60441628:60441631 > MC1R.nodes.vg
 ```
 
+Next, you can convert this subgraph back to a gfa file to view in bandage.
+```
+vg convert --threads 8 --gfa-out --no-wline MC1R.vg > MC1R.gfa
+```
 
-If you want to visualize your gam alignment files, then you must first prepare your game files with the script provided by their GitHub page. The script will output a sorted gam file in the same directory as your input file.
-https://github.com/vgteam/sequenceTubeMap
+
+If you want to visualize your gam alignment files, then you must first prepare your game files with the script provided by [SequenceTubeMap](https://github.com/vgteam/sequenceTubeMap)  on their GitHub page. The script will output a sorted gam file in the same directory as your input file.
 ```bash title="Prepare GAM files for SequenceTubeMap"
 ./sequenceTubeMap/scripts/prepare_gam.sh sample1.giraffe.gam
 ```
