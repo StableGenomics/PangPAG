@@ -6,6 +6,7 @@
 
 [VG manual page](https://github.com/vgteam/vg/wiki/vg-manpage)
 
+The two graph files we will use are vg and gfa formats. You can use `vg convert` to convert between formats.
 ```bash title="Converting files"
 #Convert VG to GFA
 vg convert --threads 8 --gfa-out --no-wline chr3.vg > chr3.gfa
@@ -34,13 +35,16 @@ Next, you can convert this subgraph back to a gfa file to view in bandage.
 vg convert --threads 8 --gfa-out --no-wline MC1R.vg > MC1R.gfa
 ```
 
+You can also use [SequnceTubeMap (online demo)](https://vgteam.github.io/sequenceTubeMap/) to visualize pangenome graph by importing the `vg` files. 
 
-If you want to visualize your gam alignment files, you must first prepare your gam files with the script provided by [SequenceTubeMap](https://github.com/vgteam/sequenceTubeMap) on their GitHub page. The script will output a .sorted.gam file in the same directory as your input file. In our example, we aligned whole genome short-read data to our pangenome graph using `vg giraffe` [(Manual)](https://github.com/vgteam/vg/wiki/vg-manpage#giraffe).
+In addition to viewing the pangenome graph, you can also view alignments to the pangenome graph. In our example, we aligned whole genome short-read data to our pangenome graph using `vg giraffe` [(Manual)](https://github.com/vgteam/vg/wiki/vg-manpage#giraffe) to produce the gam (Graph Alignment/Map format, vg's BAM equivalent) files.
+
+To visualize your gam alignment files, you must first prepare your gam files with the script provided by [SequenceTubeMap](https://github.com/vgteam/sequenceTubeMap) on their GitHub page. The script will output a .sorted.gam file in the same directory as your input file.
 ```bash title="Prepare GAM files for SequenceTubeMap"
 ./sequenceTubeMap/scripts/prepare_gam.sh sample1.giraffe.gam
 ```
 
-Now you can extract regions from your graph (vg) file and sorted.gam files at the same time. Using `--context-steps 20`, we expanded the context of the chunk 20 node steps to include the adjacent sequences on either side of our region.  
+Now you can extract regions from your graph (vg) file and sorted.gam files at the same time. Using `--context-steps 20`, we expanded the context of the chunk by 20 node steps to include the adjacent sequences on either side of our region.  
 ```bash title="Extract region from graph and gam files."
 vg chunk --xg-name chr3.vg\
  --gam-name sample1.giraffe.sorted.gam\
